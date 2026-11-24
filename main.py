@@ -12,6 +12,7 @@ LIMIT = 120
 def main() -> None:
     assert isinstance(LINE, str)
     assert LINE.strip(), "fortune must not be blank"
+    assert LINE == LINE.strip(), "fortune must not have leading/trailing whitespace"
     assert "\n" not in LINE and "\r" not in LINE, "fortune must be a single line"
     assert 1 <= len(LINE) <= LIMIT, f"fortune must be 1-{LIMIT} chars, got {len(LINE)}"
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
